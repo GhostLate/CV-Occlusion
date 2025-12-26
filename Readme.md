@@ -7,7 +7,7 @@ This project automates the counting of foreground tomatoes in farm images and ha
 Ensure you have the following Python libraries installed:
 
 ```bash
-pip install opencv-python imutils natsort numpy torch matplotlib scikit-learn
+pip install -r /requirements.txt
 ```
 
 ## Usage

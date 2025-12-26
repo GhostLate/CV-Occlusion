@@ -1,0 +1,7 @@
+opencv-python
+imutils
+natsort
+numpy
+torch
+matplotlib
+scikit-learn
