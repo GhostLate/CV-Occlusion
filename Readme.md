@@ -7,7 +7,7 @@ This project automates the counting of foreground tomatoes in farm images and ha
 Ensure you have the following Python libraries installed:
 
 ```bash
-pip install -r /requirements.txt
+pip install -r ./requirements.txt
 ```
 
 ## Usage
