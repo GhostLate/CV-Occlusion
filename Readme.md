@@ -1,6 +1,6 @@
 # Tomato Segmentation & Depth Analysis
 
-This project automates the counting of foreground tomatoes in greenhouse images and handles occlusion issues to provide accurate depth estimation.
+This project automates the counting of foreground tomatoes in farm images and handles occlusion issues to provide accurate depth estimation.
 
 ## Requirements
 
@@ -20,10 +20,10 @@ python main.py --data-path "./TaskDataset-Occlusion"
 ## Optional Arguments
 
 * `--debug`: (bool) Set to True to see intermediate depth maps and clusters.
-
 * `--kmean-score`: (float) Threshold for Silhouette Score to accept a cluster (default: 0.8).
-
 * `--max-n-clusters`: (int) Max clusters to search for when separating foreground/background (default: 5).
+* `--max-n-out`: (bool) Force output of max clusters (default: False).
+* `--k-size`: (float) Cluster size ratio for occlusion filtering (default: 1.5).
 
 ## Methodology
 
@@ -40,7 +40,7 @@ python main.py --data-path "./TaskDataset-Occlusion"
 * Filtering: The script calculates the min and max depth of this foreground cluster and filters out any tomatoes falling outside this range.
 
 ### Bonus Task: Occlusion Handling
-**Goal:** Correct depth estimation when a tomato is partially covered by a leaf. Problem: A standard median/mean calculation on an occluded tomato includes the depth of the leaf (which is closer), resulting in an inaccurate depth measurement for the tomato.
+**Goal:** Correct depth estimation when a tomato is partially covered by a leaf. 
 
 ### Solution:
 
@@ -53,9 +53,6 @@ python main.py --data-path "./TaskDataset-Occlusion"
 The script generates visualizations containing 4 plots for each image:
 
 * `dist_base`: All detected tomatoes with naive depth estimation.
-
 * `dist_base_foreground`: Only foreground tomatoes (Task 1 result).
-
 * `dist_region`: All tomatoes with occlusion-corrected depth (Bonus Task).
-
 * `dist_region_foreground`: Foreground tomatoes with occlusion-corrected depth (Final Result).
